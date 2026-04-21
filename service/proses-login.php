@@ -1,0 +1,21 @@
+<?php
+include "koneksi.php";
+session_start();
+
+if (isset($_POST['login'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+    $result = $koneksi->query($sql);
+
+    if ($result->num_rows > 0){
+        $data = $result->fetch_assoc();
+        $_SESSION["username"] = $data["username"];
+        header('Location: ../index.php');
+        exit();
+    } else {
+        echo "data user tidak ditemukan!!";
+    }
+}
+?>
