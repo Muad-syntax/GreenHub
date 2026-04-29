@@ -1,8 +1,5 @@
 <?php
 include "service/koneksi.php";
-include "service/proses-login.php";
-
-
 ?>
 
 <!DOCTYPE html>
